@@ -1,6 +1,6 @@
 package boothe;
 
-import gradeapp.MinedTree;
+import gradeapp.NewMinedTree;
 import java.io.IOException;
 
 public class BootheAlgo {
@@ -9,7 +9,7 @@ public class BootheAlgo {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        MinedTree.main(args);
+        NewMinedTree.main(args);
     }
 
 }

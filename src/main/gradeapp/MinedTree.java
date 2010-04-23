@@ -11,10 +11,10 @@ import java.io.*; // for the tests
  * @author Peter Boothe - peter.boothe@manhattan.edu
  * @since date 9 Feb 2010
  */
-public class MinedTree {
-    int correct;
-    String[] key;
-    Collection<String[]> students;
+public class MinedTree{
+    public int correct;
+    public String[] key;
+    public Collection<String[]> students;
 
     public int numGood, numBad;
     public int question=-1;
@@ -80,7 +80,7 @@ public class MinedTree {
         }
     }
 
-    double findEntropy(Collection<String[]> data)
+    public double findEntropy(Collection<String[]> data)
     {
         double p_good = ((double)count(true, data)) / data.size();
         double p_bad = ((double)count(false, data)) / data.size();
@@ -97,7 +97,7 @@ public class MinedTree {
         return entropy;
     }
 
-    double splitQuality(int question)
+    public double splitQuality(int question)
     {
         double classEntropy = findEntropy(students);
         Collection<String[]> right = findAnswers(question, true);
@@ -112,7 +112,7 @@ public class MinedTree {
         return classEntropy - splitEntropy;
     }
 
-    int count(boolean passing, Collection<String[]> students)
+    public int count(boolean passing, Collection<String[]> students)
     {
         int c = 0;
         for (String[] person : students) {
@@ -127,13 +127,13 @@ public class MinedTree {
         return c;
     }
 
-    Collection<String[]> findAnswers(int question, boolean right)
+    public Collection<String[]> findAnswers(int question, boolean right)
     {
         return findAnswers(question, right, students);
     }
 
 
-    Collection<String[]> findAnswers(int question, boolean right,
+    public Collection<String[]> findAnswers(int question, boolean right,
             Collection<String[]> students)
     {
         Collection<String[]> peeps = new LinkedList<String[]>();
@@ -156,7 +156,7 @@ public class MinedTree {
         }
     }
 
-    String toString(boolean gotItCorrect)
+    public String toString(boolean gotItCorrect)
     {
         if (question == -1) throw new RuntimeException("THIS SHOULD NOT HAPPEN");
         String thisMessage = "They got question " + question + (gotItCorrect ? " right" : " wrong") + "\n ";

@@ -14,6 +14,7 @@ public class Graph {
 //Default Arguments
     public static final int DEFAULT_GOODGRADE = 0;
     public static final float DEFAULT_QUALITY = 0.15f;
+    public static final int DEFAULT_BUTTON = 1;
 
     /**
      * The singleton instance of the graph
@@ -34,6 +35,7 @@ public class Graph {
     //Default settings
     private int goodgrade = DEFAULT_GOODGRADE;
     private float quality = DEFAULT_QUALITY;
+    private int button = DEFAULT_BUTTON;
     private Vector<Vector<Character>> grades = new Vector<Vector<Character>>();
     private Vector<Character> answerkey = new Vector<Character>();
     private MinedTree tree;
@@ -65,7 +67,11 @@ public class Graph {
         for (int i = 0; i < ans.length; i++) {
             ans[i] = String.valueOf(answerkey.get(i));
         }
-        tree = new MinedTree(getQuality(), getGoodgrade(), ans, students);
+        if(getButton() == 1)
+            tree = new MinedTree(getQuality(), getGoodgrade(), ans, students);
+        else
+            //BootheAlgo2
+            System.out.println("Use Boothe Algo2");
     }
 
 
@@ -96,6 +102,15 @@ public class Graph {
      */
     public void setQuality(float quality) {
         this.quality = quality;
+        BootheAlgo();
+    }
+
+    public int getButton(){
+        return button;
+    }
+
+    public void setButton(int button){
+        this.button = button;
         BootheAlgo();
     }
 

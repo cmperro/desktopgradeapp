@@ -38,6 +38,7 @@ public class GradeApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         loadButton = new javax.swing.JButton();
         emailButton = new javax.swing.JButton();
         printButton = new javax.swing.JButton();
@@ -51,6 +52,8 @@ public class GradeApp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         helpButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Weeder");
@@ -87,7 +90,7 @@ public class GradeApp extends javax.swing.JFrame {
         goodGradePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Good Grade - 0/0"));
         goodGradePanel.setToolTipText("This bar defines what a good grade is. Move it right to increase the grade, move it left to decrease it.");
 
-        gradeSlider.setFont(new java.awt.Font("DejaVu Sans", 0, 10));
+        gradeSlider.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
         gradeSlider.setMajorTickSpacing(5);
         gradeSlider.setMaximum(0);
         gradeSlider.setMinorTickSpacing(1);
@@ -107,20 +110,20 @@ public class GradeApp extends javax.swing.JFrame {
         goodGradePanelLayout.setHorizontalGroup(
             goodGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(goodGradePanelLayout.createSequentialGroup()
-                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
+                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 1232, Short.MAX_VALUE)
                 .addContainerGap())
         );
         goodGradePanelLayout.setVerticalGroup(
             goodGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(goodGradePanelLayout.createSequentialGroup()
-                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         qualitySliderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Quality - " + (int)(Graph.DEFAULT_QUALITY*100) + "%"));
         qualitySliderPanel.setToolTipText("This bar modifies the quality of the graph. Increasing quality shrinks the graph but gives more definate results, while reducing quality gives more results but they may not be the most telling.");
 
-        qualitySlider.setFont(new java.awt.Font("DejaVu Sans", 0, 8)); // NOI18N
+        qualitySlider.setFont(new java.awt.Font("DejaVu Sans", 0, 8));
         qualitySlider.setMajorTickSpacing(10);
         qualitySlider.setMinimum(1);
         qualitySlider.setMinorTickSpacing(5);
@@ -140,13 +143,13 @@ public class GradeApp extends javax.swing.JFrame {
         qualitySliderPanelLayout.setHorizontalGroup(
             qualitySliderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(qualitySliderPanelLayout.createSequentialGroup()
-                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
+                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 1232, Short.MAX_VALUE)
                 .addContainerGap())
         );
         qualitySliderPanelLayout.setVerticalGroup(
             qualitySliderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(qualitySliderPanelLayout.createSequentialGroup()
-                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -174,17 +177,17 @@ public class GradeApp extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(scaleSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gRender, javax.swing.GroupLayout.DEFAULT_SIZE, 1057, Short.MAX_VALUE))
+                .addComponent(gRender, javax.swing.GroupLayout.DEFAULT_SIZE, 1202, Short.MAX_VALUE))
         );
         graphPanelLayout.setVerticalGroup(
             graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, graphPanelLayout.createSequentialGroup()
                 .addGroup(graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(gRender, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                    .addComponent(gRender, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, graphPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scaleSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
+                        .addComponent(scaleSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -202,6 +205,22 @@ public class GradeApp extends javax.swing.JFrame {
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("BootheAlgo1");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("BootheAlgo2");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
             }
         });
 
@@ -223,20 +242,27 @@ public class GradeApp extends javax.swing.JFrame {
                         .addComponent(printButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 725, Short.MAX_VALUE)
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 569, Short.MAX_VALUE)
                         .addComponent(helpButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loadButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailButton)
-                    .addComponent(printButton)
-                    .addComponent(helpButton)
-                    .addComponent(saveButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(loadButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailButton)
+                            .addComponent(printButton)
+                            .addComponent(helpButton)
+                            .addComponent(saveButton)))
+                    .addComponent(jRadioButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(goodGradePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -244,6 +270,10 @@ public class GradeApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(graphPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jRadioButton2)
+                .addGap(426, 426, 426))
         );
 
         pack();
@@ -347,6 +377,16 @@ public class GradeApp extends javax.swing.JFrame {
         GraphPrint.printComponent(gRender.getGraph());
     }//GEN-LAST:event_printButtonActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        Graph.getGraph().setButton(1);
+        gRender.render();
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        Graph.getGraph().setButton(2);
+        gRender.render();
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -367,6 +407,7 @@ public class GradeApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton emailButton;
     private gradeapp.GRender gRender;
     private javax.swing.JPanel goodGradePanel;
@@ -374,6 +415,8 @@ public class GradeApp extends javax.swing.JFrame {
     private javax.swing.JPanel graphPanel;
     private javax.swing.JButton helpButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JButton loadButton;
     private javax.swing.JButton printButton;
     private javax.swing.JSlider qualitySlider;
