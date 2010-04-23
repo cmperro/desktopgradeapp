@@ -38,7 +38,7 @@ public class Graph {
     private int button = DEFAULT_BUTTON;
     private Vector<Vector<Character>> grades = new Vector<Vector<Character>>();
     private Vector<Character> answerkey = new Vector<Character>();
-    private MinedTree tree;
+    private Tree tree;
     private GRender renderer;
 
     /**
@@ -68,10 +68,9 @@ public class Graph {
             ans[i] = String.valueOf(answerkey.get(i));
         }
         if(getButton() == 1)
-            tree = new MinedTree(getQuality(), getGoodgrade(), ans, students);
+            tree = new NewMinedTree(getQuality(), getGoodgrade(), ans, students);
         else
-            //BootheAlgo2
-            System.out.println("Use Boothe Algo2");
+            tree = new MinedTree(getQuality(), getGoodgrade(), ans, students);
     }
 
 
@@ -149,7 +148,7 @@ public class Graph {
     /**
      * @return the tree
      */
-    public MinedTree getTree() {
+    public Tree getTree() {
         return tree;
     }
 

@@ -11,14 +11,11 @@ import java.io.*; // for the tests
  * @author Peter Boothe - peter.boothe@manhattan.edu
  * @since date 9 Feb 2010
  */
-public class MinedTree{
+public class MinedTree extends Tree{
     public int correct;
     public String[] key;
-    public Collection<String[]> students;
 
     public int numGood, numBad;
-    public int question=-1;
-    public MinedTree right=null, wrong=null;
 
     /**
      * Make a new MinedTree from the given inputs.

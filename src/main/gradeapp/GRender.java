@@ -79,7 +79,7 @@ public class GRender extends JPanel{
     }
 
     /**
-     * Same as {@link #render(gradeapp.MinedTree) } except it does the following:
+     * Same as {@link #render(gradeapp.Tree) } except it does the following:
      * <code>render(Graph.getGraph());</code> This method does nothing if
      * the graph or tree is null.
      */
@@ -87,7 +87,7 @@ public class GRender extends JPanel{
         Graph g = Graph.getGraph();
         if (g == null) return;
 
-        MinedTree tree = g.getTree();
+        Tree tree = g.getTree();
         if (tree == null) return;
 
         render(tree);
@@ -98,7 +98,7 @@ public class GRender extends JPanel{
      * from the given tree and displayig it on the jGraph.
      * @param tree the tree to render.
      */
-    public void render(MinedTree tree){
+    public void render(Tree tree){
         swingLayout.show(this, GRAPH);
         graph.setModel(new DefaultGraphModel());//Clear the tree by replacing
                                                 //the model with a blank new one
@@ -120,8 +120,8 @@ public class GRender extends JPanel{
 
     /**
      * Takes care of all of the hardwork that goes into builing a JGraph from
-     * a MinedTree. This method takes care of traversing the tree, and creating
-     * Cells using {@link #getCell(gradeapp.MinedTree, boolean) } and putting edges
+     * a Tree. This method takes care of traversing the tree, and creating
+     * Cells using {@link #getCell(gradeapp.Tree, boolean) } and putting edges
      * between them using {@link #getEdge(org.jgraph.graph.DefaultGraphCell, org.jgraph.graph.DefaultGraphCell) }.
      * This method only has the algoritm for conversion and the structure between
      * cells. To change how things look, go to getEdge or getCell.
@@ -129,7 +129,7 @@ public class GRender extends JPanel{
      * @return the list of cells that make up the graph to be rendered. Note:
      *          the first element of this list is the root of the tree.
      */
-    private ArrayList<DefaultGraphCell> buildCellsFromTree(MinedTree tree, boolean gotItCorrect){
+    private ArrayList<DefaultGraphCell> buildCellsFromTree(Tree tree, boolean gotItCorrect){
         ArrayList<DefaultGraphCell> cells = new ArrayList<DefaultGraphCell>();
         DefaultGraphCell cell = getCell(tree, gotItCorrect);
         DefaultPort port = new DefaultPort();
@@ -167,15 +167,15 @@ public class GRender extends JPanel{
     }
 
     /**
-     * Transforms a MinedTree Node from boothe into a DefaultGraphCell.
+     * Transforms a Tree Node from boothe into a DefaultGraphCell.
      * This basically converts from boothe -> JGraph. Edit this to change how
      * cells look. Since cell looks are dependent on whether the cell is correct
      * or not, we need to know if they got it correct or not.
      * @param tree the tree from the boothe algorithm to render
      * @param gotItCorrect whether this cell got the question correct or not.
-     * @return the graphcell that represents the MinedTree passed.
+     * @return the graphcell that represents the Tree passed.
      */
-    protected DefaultGraphCell getCell(MinedTree tree, boolean gotItCorrect){
+    protected DefaultGraphCell getCell(Tree tree, boolean gotItCorrect){
         String s = "<HTML>"; //You make new lines in JGraph by rendering the
                              //With HTML. Crazy? yes. See jgraphmanual.pdf
                              //Whenever there is a <BR> that's a new line.
