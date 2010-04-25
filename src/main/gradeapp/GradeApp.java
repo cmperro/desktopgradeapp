@@ -116,7 +116,7 @@ public class GradeApp extends javax.swing.JFrame {
         goodGradePanelLayout.setVerticalGroup(
             goodGradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(goodGradePanelLayout.createSequentialGroup()
-                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addComponent(gradeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -149,7 +149,7 @@ public class GradeApp extends javax.swing.JFrame {
         qualitySliderPanelLayout.setVerticalGroup(
             qualitySliderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(qualitySliderPanelLayout.createSequentialGroup()
-                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -210,6 +210,7 @@ public class GradeApp extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("BootheAlgo1");
+        jRadioButton1.setEnabled(false);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -218,6 +219,7 @@ public class GradeApp extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("BootheAlgo2");
+        jRadioButton2.setEnabled(false);
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
@@ -307,6 +309,8 @@ public class GradeApp extends javax.swing.JFrame {
             printButton.setEnabled(true);
             scaleSlider.setEnabled(true);
             qualitySlider.setEnabled(true);
+            jRadioButton1.setEnabled(true);
+            jRadioButton2.setEnabled(true);
 
             //gRender.render();
         } catch (FileNotFoundException ex) {
