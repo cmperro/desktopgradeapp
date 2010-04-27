@@ -49,7 +49,6 @@ public class HelperButton extends JPanel{
 
         final String loadHelpCommand = "loadhelp";
         final String graphHelpCommand = "graphhelp";
-        final String emailHelpCommand = "emailhelp";
         final String saveHelpCommand = "savehelp";
         final String printHelpCommand = "printhelp";
         final String aboutCommand = "abouthelp";
@@ -62,10 +61,6 @@ public class HelperButton extends JPanel{
         graphHelp.setActionCommand(graphHelpCommand);
         group.add(graphHelp);
 
-        JRadioButton emailHelp = new JRadioButton("Emailing a Tree");
-        emailHelp.setActionCommand(emailHelpCommand);
-        group.add(emailHelp);
-
         JRadioButton saveHelp = new JRadioButton("Saving a Tree");
         saveHelp.setActionCommand(saveHelpCommand);
         group.add(saveHelp);
@@ -77,6 +72,8 @@ public class HelperButton extends JPanel{
         JRadioButton aboutHelp = new JRadioButton("About the developers");
         aboutHelp.setActionCommand(aboutCommand);
         group.add(aboutHelp);
+
+        loadhelp.setSelected(true);
 
         JButton showItButton = new JButton("Select");
         showItButton.addActionListener(new ActionListener() {
@@ -134,17 +131,6 @@ text+="<h1>Setting the Quality</h1><p>Your first question probably is: \"What" +
                     "save a copy of the tree. You do not need to specify an<br />" +
                     "extension (ie: .jpg, .gif, etc) the image will be automatically<br />" +
                     "saved with a *.png extension for you.</p>";
-                } else if (command.equals(emailHelpCommand)) {
-                    text += "<h1>Emailing a File</h1>" +
-                       "<p>You also have to load an excel file so a graph is displayed before it can be emailed.<br>"+
-                       "When you click on the email button you must input an email address to send the graph to.<br>" +
-                       "You do not have to select any file, the application will automaticlly select the picture of the graph.<br>"+
-                       "After selecting a file, application will open a progress bar, which will close when the emailing process is complete.<br>"+
-                       "You will then get a message stating whether the file was successfully sent or not.<br</p>"+
-                       "<h2>Issues</h2>" +
-                       "<p>If not successful please must sure that you are connected to the internet.<br>"+
-                       "Also must sure that you typed in the correct email address.<br>"+
-                       "Please check to see if gmail server or your email server is up.<br>";
                 } else if (command.equals(printHelpCommand)) {
                     text +="<h1>Printing a File</h1>" +
                        "<p>You also have to load an excel file so a graph is displayed before it can be printed.<br>"+
