@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
@@ -53,6 +56,7 @@ public class GradeApp extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        resetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Weeder");
@@ -214,6 +218,17 @@ public class GradeApp extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
+        
+        resetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradeapp/images/resetIt.png")));
+        resetButton.setText("Reset Image");
+        resetButton.setEnabled(false);
+        resetButton.setMaximumSize(new java.awt.Dimension(135, 32));
+        resetButton.setMinimumSize(new java.awt.Dimension(135, 32));
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,6 +246,8 @@ public class GradeApp extends javax.swing.JFrame {
                         .addComponent(printButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(resetButton)
                         .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButton1)
@@ -249,7 +266,8 @@ public class GradeApp extends javax.swing.JFrame {
                             .addComponent(loadButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(helpButton)
                             .addComponent(printButton)
-                            .addComponent(saveButton)))
+                            .addComponent(saveButton)
+                            .addComponent(resetButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jRadioButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -283,7 +301,6 @@ public class GradeApp extends javax.swing.JFrame {
         File input = fc.getSelectedFile();
         try {
             Graph.createGraph(input);
-
             qualitySlider.setMaximum(100);
             qualitySlider.setValue((int)(Graph.getGraph().getQuality()*100));
             gradeSlider.setMaximum(Graph.getGraph().getAnswerkey().size());
@@ -296,6 +313,7 @@ public class GradeApp extends javax.swing.JFrame {
             qualitySlider.setEnabled(true);
             jRadioButton1.setEnabled(true);
             jRadioButton2.setEnabled(true);
+            resetButton.setEnabled(true);
 
             //gRender.render();
         } catch (FileNotFoundException ex) {
@@ -374,6 +392,20 @@ public class GradeApp extends javax.swing.JFrame {
         Graph.getGraph().setButton(2);
         gRender.render();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+    
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        //Set scale back to default, or 1.0
+        //Set quality back to Default or Normal
+        gRender.getGraph().setScale(1.0);
+        Graph.getGraph().setQuality(NORMAL);
+        
+        //Set Slider values back to Default to try and avoid errors
+        qualitySlider.setMaximum(100);
+        qualitySlider.setValue((int)(Graph.getGraph().getQuality()*100));
+        gradeSlider.setMaximum(Graph.getGraph().getAnswerkey().size());
+        gradeSlider.setValue((int) (Graph.getGraph().getAnswerkey().size() * 0.8f));
+        
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
     * @param args the command line arguments
@@ -410,6 +442,7 @@ public class GradeApp extends javax.swing.JFrame {
     private javax.swing.JPanel qualitySliderPanel;
     private javax.swing.JButton saveButton;
     private javax.swing.JSlider scaleSlider;
+    private javax.swing.JButton resetButton;
     // End of variables declaration//GEN-END:variables
 
 }
