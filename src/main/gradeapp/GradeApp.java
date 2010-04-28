@@ -347,14 +347,7 @@ public class GradeApp extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         GraphSave.saveImage(gRender.getGraph());
     }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void emailButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        File tmpFile = GraphSave.tempMaker(gRender.getGraph());
-        // Thanks gRender private, had to pass in tmpFile
-        // O Well
-        // Its Static so I can pull this shit
-        EmailSender.sentEmail(tmpFile);
-    }                                                                       
+                                                                   
 
     private void scaleSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_scaleSliderStateChanged
         int c = scaleSlider.getValue();
