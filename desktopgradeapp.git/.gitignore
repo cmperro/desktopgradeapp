@@ -1,9 +1,0 @@
-*.swp
-*.ps
-*.zip
-*.patch
-bin/*
-./*.xls
-doc/*
-dist/*
-sampledata/
