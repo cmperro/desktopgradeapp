@@ -394,9 +394,11 @@ public class GradeApp extends javax.swing.JFrame {
         
         //Set Slider values back to Default to try and avoid errors
         qualitySlider.setMaximum(100);
-        qualitySlider.setValue((int)(Graph.getGraph().getQuality()*100));
+        qualitySlider.setValue((int)(Graph.DEFAULT_QUALITY*100));
         gradeSlider.setMaximum(Graph.getGraph().getAnswerkey().size());
         gradeSlider.setValue((int) (Graph.getGraph().getAnswerkey().size() * 0.8f));
+        scaleSlider.setValue(100);
+
         
     }//GEN-LAST:event_resetButtonActionPerformed
 
